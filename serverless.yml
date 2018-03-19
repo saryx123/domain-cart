@@ -63,14 +63,12 @@ functions:
       - http:
           path: /graphiql
           method: get
-          cors: true
   navigation:
     handler: functions/navigation/index.handler
     events:
       - http:
           path: /navigation
           method: get
-          cors: true
 
 # resources:
 #   Resources: ${file(migrations/cart-checkout.yml)}

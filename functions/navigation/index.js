@@ -1,5 +1,5 @@
 const slsp = require('sls-promise')
-const fetch = require('isomorphic-fetch')
+const fetch = require('isomorphic-unfetch')
 
 exports.handler = slsp(() => {
   return fetch('https://www.jcrew.com/data/v1/us/navigation')
