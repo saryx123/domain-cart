@@ -10,7 +10,7 @@ exports.graphqlHandler = (event, context, callback) => {
     // https://serverless.com/blog/cors-api-gateway-survival-guide/#cors-with-cookie-credentials
     if (data.headers) {
       data.headers['Access-Control-Allow-Origin'] = event.headers.origin
-      data.headers['Access-Control-Allow-Credentials'] = '*'
+      data.headers['Access-Control-Allow-Credentials'] = true
     }
     callback(null, data)
   })
