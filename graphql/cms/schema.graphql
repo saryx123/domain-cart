@@ -1,0 +1,60 @@
+scalar JSON # We use custom JSON data type (See index.js)
+
+type Query {
+  cmsLayout(layoutName: String!, isPreview: Boolean): CmsLayout
+}
+
+type CmsLayout {
+  containers: [CmsContainer]
+  # GraphQL has no support for maps
+  # We change it from a map of <Id, Document> to an array of Documents.
+  documents: [CmsDocumentContainer]
+}
+
+type CmsContainer {
+  name: String
+  id: String
+  superType: String
+  label: String
+  cmsData: String
+  components: [CmsComponent]
+}
+
+type CmsComponent {
+  name: String
+  id: String
+  type: String
+  superType: String
+  cmsData: String
+  attributes: JSON
+  parameters: JSON
+}
+
+type CmsDocumentContainer {
+  id: String
+  document: CmsDocument
+  link: String
+  cmsData: String
+}
+
+type CmsDocument {
+  id: String
+  name: String
+  displayName: String
+  title: String
+  link: String
+  content: CmsDocumentContent
+  image: CmsDocumentImage
+}
+
+type CmsDocumentContent {
+  id: String
+  value: String
+}
+
+type CmsDocumentImage {
+  id: String
+  fileName: String
+  description: String
+  src: String
+}

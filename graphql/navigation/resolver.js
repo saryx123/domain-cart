@@ -3,8 +3,9 @@ const navigation = require('../../functions/navigation')
 const invoke = handler => {
   return new Promise((resolve, reject) => {
     navigation.handler({}, {}, (error, data) => {
-      if (error || data.statusCode !== 200) reject(JSON.parse((error || data).body))
-      else resolve(JSON.parse(data.body))
+      if (error || data.statusCode !== 200) {
+        reject(JSON.parse((error || data).body))
+      } else resolve(JSON.parse(data.body))
     })
   })
 }

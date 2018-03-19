@@ -23,9 +23,12 @@ const parsers = {
     url: data.url,
     isGift: /gift/i.test(data.label || '')
   }),
-  NavigationCategory: data => Object.assign(parsers.NavigationItem(data), {
-    subcategories: (data.navGroups || data.saleGroups || []).map(parsers.NavigationSubcategory)
-  }),
+  NavigationCategory: data =>
+    Object.assign(parsers.NavigationItem(data), {
+      subcategories: (data.navGroups || data.saleGroups || []).map(
+        parsers.NavigationSubcategory
+      )
+    }),
   NavigationSubcategory: data => ({
     label: data.label,
     items: (data.navItems || []).map(parsers.NavigationItem)

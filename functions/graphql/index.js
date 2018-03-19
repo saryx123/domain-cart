@@ -1,7 +1,10 @@
 var server = require('apollo-server-lambda')
 var schema = require('../../graphql')
 
-exports.graphiqlHandler = server.graphiqlLambda({ schema, endpointURL: '/graphql' })
+exports.graphiqlHandler = server.graphiqlLambda({
+  schema,
+  endpointURL: '/graphql'
+})
 
 exports.graphqlHandler = (event, context, callback) => {
   server.graphqlLambda({ schema })(event, context, (error, data) => {

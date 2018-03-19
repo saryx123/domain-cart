@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "standard"
+  ],
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "jest/globals": true
+  },
+  "rules": {
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ],
+    "no-irregular-whitespace": 0,
+    "comma-dangle": [
+      "error",
+      "only-multiline"
+    ]
+  }
+}

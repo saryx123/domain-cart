@@ -1,6 +1,6 @@
 type Query {
   navigation: [NavigationCategory]
-  navigationCategory (id: String!): NavigationCategory
+  navigationCategory(id: String!): NavigationCategory
 }
 
 type NavigationItem {
