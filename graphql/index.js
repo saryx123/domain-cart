@@ -1,0 +1,5 @@
+const { mergeSchemas } = require('graphql-tools')
+
+module.exports = mergeSchemas({
+  schemas: [require('./navigation')]
+})

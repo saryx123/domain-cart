@@ -1,0 +1,26 @@
+type Query {
+  navigation: [NavigationCategory]
+  navigationCategory (id: String!): NavigationCategory
+}
+
+type NavigationItem {
+  label: String
+  shortLabel: String
+  id: String
+  url: String
+  isGift: Boolean
+}
+
+type NavigationCategory {
+  subcategories: [NavigationSubcategory]
+  label: String
+  shortLabel: String
+  id: String
+  url: String
+  isGift: Boolean
+}
+
+type NavigationSubcategory {
+  label: String
+  items: [NavigationItem]
+}

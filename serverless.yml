@@ -1,0 +1,76 @@
+service: digital-cart-checkout
+description: JCrew digital-api with graphql
+
+package:
+  exclude:
+    - .cache
+    - package.json
+    - package-lock.json
+    - yarn.lock
+    - node_modules/dynamodb-localhost/**
+    - node_modules/serverless-dynamodb-local/**
+    - node_modules/serverless-offline/**
+
+plugins:
+#  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-domain-manager
+
+custom:
+  serverless-offline:
+    port: 4000
+  memorySizes:
+    development: 512 # TODO(ajoslin): How much is needed?
+    staging: 512 # TODO(ajoslin): How much is needed?
+  customDomain:
+    domainName: ${self:provider.stage}.api.jcrew.ajoslin.com
+    certificateName: '*.api.jcrew.ajoslin.com'
+    createRoute53Record: true
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  timeout: 15
+  stage: ${opt:stage, 'development'}
+  region: ${opt:region, 'us-east-1'}
+  memorySize: ${self:custom.memorySizes.${self:provider.stage}}
+  environment:
+    NODE_ENV: ${self:provider.stage}
+    DYNAMODB_TABLE: ${self:service}-${self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - lambda:InvokeFunction
+      Resource: "*"
+
+functions:
+  graphql:
+    handler: functions/graphql/index.graphqlHandler
+    events:
+      - http:
+          path: /graphql
+          method: get
+          cors: true
+      - http:
+          path: /graphql
+          method: post
+          cors: true
+  graphiql:
+    handler: functions/graphql/index.graphiqlHandler
+    events:
+      - http:
+          path: /graphiql
+          method: get
+          cors: true
+  navigation:
+    handler: functions/navigation/index.handler
+    events:
+      - http:
+          path: /navigation
+          method: get
+          cors: true
+
+# resources:
+#   Resources: ${file(migrations/cart-checkout.yml)}
