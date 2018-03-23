@@ -23,12 +23,13 @@ custom:
     development: 512 # TODO(ajoslin): How much is needed?
     staging: 512 # TODO(ajoslin): How much is needed?
   customDomain:
-    domainName: ${self:provider.stage}.api.jcrew.ajoslin.com
-    certificateName: '*.api.jcrew.ajoslin.com'
+    domainName: ${self:provider.stage}.api.jcrew.ydv.live
+    certificateName: '*.api.jcrew.ydv.live'
     createRoute53Record: true
 
 provider:
   name: aws
+  profile: jcrew
   runtime: nodejs6.10
   timeout: 15
   stage: ${opt:stage, 'development'}
