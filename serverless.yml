@@ -23,8 +23,8 @@ custom:
     development: 512 # TODO(ajoslin): How much is needed?
     staging: 512 # TODO(ajoslin): How much is needed?
   customDomain:
-    domainName: ${self:provider.stage}.api.jcrew.ydv.live
-    certificateName: '*.api.jcrew.ydv.live'
+    domainName: ${self:provider.stage}-api.jcrew.ydv.live
+    certificateName: '*.jcrew.ydv.live'
     createRoute53Record: true
 
 provider:
