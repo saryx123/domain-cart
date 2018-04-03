@@ -1,0 +1,41 @@
+type Product {
+  code: String
+  name: String
+  origPrice: Int
+}
+
+input CartItemInput{
+  code: String!
+  quantity: Int!
+  deliveryType: [DeliveryType]
+}
+
+enum DeliveryType{
+  shipToAddress
+  shipToStore
+  pickupFromStore
+}
+
+type CartItem {
+  product: Product
+  id: String
+  price: Float
+  quantity: Int
+  deliveryType:[DeliveryType]
+}
+
+type Cart {
+  items: [CartItem]
+
+}
+
+type Query {
+  CartGet: [CartItem]
+  CartGetItem(id:String!):CartItem
+}
+
+type Mutation{
+  CartAddItem(cartItem: CartItemInput): CartItem
+  CartUpdateItem(id:String!,quantity:Int!,deliveryType:[DeliveryType]!):CartItem
+  CartDeleteItem(id:String!):CartItem 
+}
