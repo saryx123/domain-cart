@@ -6,6 +6,7 @@ type Cart {
   currency: String
   items: [CartItem]
   price: CartPrice!
+  quantity: Int
 }
 
 type CartPrice {
