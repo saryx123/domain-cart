@@ -1,6 +1,6 @@
 const config = require('../../config')
 const join = require('url-join')
-const fetch = require('isomorphic-unfetch')
+const fetch = require('node-fetch')
 
 module.exports = {
   Query: {

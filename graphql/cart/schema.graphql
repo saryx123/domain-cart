@@ -1,0 +1,128 @@
+type Query {
+  cartGet: Cart
+}
+
+type Cart {
+  currency: String
+  items: [CartItem]
+  price: CartPrice!
+}
+
+type CartPrice {
+  discount: Int
+  shipping: Int
+  tax: Int
+  subtotal: Int
+  final: Int
+}
+
+type CartItem {
+  quantity: Int
+  product: Product
+  size: String
+  color: String
+}
+
+type Product {
+  sku: String
+  url: String
+  price: ProductPrice!
+  mainImage: ProductImage!
+  images: [ProductImage]!
+  status: ProductStatus!
+  description: ProductDescription!
+}
+
+type ProductImage {
+  url: String
+}
+
+type ProductPrice {
+  final: Int
+  list: Int
+}
+
+type ProductStatus {
+  code: ProductStatusCode
+  backOrdered: Boolean
+  details: String
+}
+
+enum ProductStatusCode {
+  IN_STOCK
+  OUT_OF_STOCK
+}
+
+type ProductDescription {
+  short: String
+}
+#   final: finalPrice,
+#   list: listPrice,
+#   ecoFee: ecoFee,
+#   totalOrderItemPrice: totalOrderItemPrice,
+#   instantSavings,
+#   conditionalSavings,
+#   unitOfMeasure: price.unitOfMeasure || '',
+#   isBusinessExclusive: hasBusinessSavings(data),
+#   visibility: {
+#     onlyCart: StrBool(data.seePriceInCart, data.priceInCartOnly),
+#     previousPrice: StrBool(price.displayWasPricing),
+#     regularPrice: StrBool(price.displayRegularPricing)
+#   }
+# }
+
+# {
+#     "CURRENCY_FORMAT": {
+#         "currency": "USD",
+#         "currencySymbol": "$",
+#         "symbolBefore": true
+#     },
+#     "JCREW_CONTEXT": {
+#         "country": "US",
+#         "currency": "USD",
+#         "iccondition": "DOMESTIC",
+#         "locale": "en",
+#         "org_pricelist": "Default_US_Dollars",
+#         "sale_pricelist": "Sale_US_Dollars",
+#         "considerDOMInventory": true,
+#         "help-phone": "800 562 0258"
+#     },
+#     "SHOPPINGCART": {
+#         "BAG_ITEM": [
+#             {
+#                 "backOrdered": false,
+#                 "color": "CORAL",
+#                 "excludedFromPromo": false,
+#                 "excludeShippingPromo": false,
+#                 "finalSale": false,
+#                 "freeGift": false,
+#                 "giftCard": false,
+#                 "imageUrl": "https://www.jcrew.com/s7-img-facade/G0789_WU4866?$bag_tn150$",
+#                 "index": 0,
+#                 "listPrice": "$59.50",
+#                 "productCode": "G0790",
+#                 "promoText": "",
+#                 "productUrl": "https://nyc-cbmweb-d10/browse/single_product_detail.jsp?PRODUCT%3C%3Eprd_id=845524441874305&nav_type=PRMNAV&bmUID=madhkAB",
+#                 "salePrice": "$39.99",
+#                 "shortDesc": "Slim madras shirt in coral plaid",
+#                 "size": "MEDIUM",
+#                 "sku_id": "1689949373780435",
+#                 "status": "In Stock",
+#                 "statusDetails": "",
+#                 "totalPrice": "$119.97",
+#                 "quantity": 3
+#             }
+#         ]
+#     },
+#     "CART_SUMMARY": {
+#         "subTotal": "$119.97",
+#         "discountAmt": "$0.00",
+#         "promoDesc": "",
+#         "stackedDiscountAmt": "$",
+#         "stackedPromoDesc": "",
+#         "OLPSdiscountAmt": null,
+#         "shippingAmt": "$5.00",
+#         "taxAmt": "- - - -",
+#         "totalPriceAmt": "$124.97"
+#     }
+# }
