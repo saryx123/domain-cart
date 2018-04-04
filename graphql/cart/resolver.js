@@ -43,9 +43,16 @@ module.exports = {
   },
   CartItem: {
     quantity: item => item.quantity || 0,
-    product: item => item,
+    product: item => item, // pass item to Product resolver
     size: item => item.size,
-    color: item => item.color
+    color: item => item.color,
+    status: item => item // pas item to CartItemStatus resolver
+  },
+  CartItemStatus: {
+    code: item =>
+      /in stock/i.test(item.status || '') ? 'IN_STOCK' : 'OUT_OF_STOCK',
+    backOrdered: item => Boolean(item.backOrdered),
+    details: item => item.statusDetails
   },
   Product: {
     sku: item => item.sku_id,

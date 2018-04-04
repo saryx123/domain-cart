@@ -21,6 +21,7 @@ type CartItem {
   product: Product
   size: String
   color: String
+  status: CartItemStatus!
 }
 
 type Product {
@@ -29,7 +30,6 @@ type Product {
   price: ProductPrice!
   mainImage: ProductImage!
   images: [ProductImage]!
-  status: ProductStatus!
   description: ProductDescription!
 }
 
@@ -42,13 +42,13 @@ type ProductPrice {
   list: Int
 }
 
-type ProductStatus {
-  code: ProductStatusCode
+type CartItemStatus {
+  code: CartItemStatusCode
   backOrdered: Boolean
   details: String
 }
 
-enum ProductStatusCode {
+enum CartItemStatusCode {
   IN_STOCK
   OUT_OF_STOCK
 }
