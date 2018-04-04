@@ -1,13 +1,13 @@
-const dbCart=require('./cart')
+const dbCart = require('./cart')
 
-module.exports= {
+module.exports = {
   Query: {
     CartGetItem: (_, args) => dbCart.CartGetItem(args),
-    CartGet: () => dbCart.CartGet(),
+    CartGet: () => dbCart.CartGet()
   },
   Mutation: {
     CartAddItem: (_, args) => dbCart.CartAddItem(args),
     CartUpdateItem: (_, args) => dbCart.CartUpdateItem(args),
-    CartDeleteItem: (_, args) => dbCart.CartDeleteItem(args),
+    CartDeleteItem: (_, args) => dbCart.CartDeleteItem(args)
   }
 }

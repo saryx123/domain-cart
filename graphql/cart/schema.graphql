@@ -4,13 +4,13 @@ type Product {
   origPrice: Int
 }
 
-input CartItemInput{
+input CartItemInput {
   code: String!
   quantity: Int!
-  deliveryType: [DeliveryType]
+  deliveryType: CartItemDeliveryType
 }
 
-enum DeliveryType{
+enum CartItemDeliveryType {
   shipToAddress
   shipToStore
   pickupFromStore
@@ -21,21 +21,25 @@ type CartItem {
   id: String
   price: Float
   quantity: Int
-  deliveryType:[DeliveryType]
+  deliveryType: CartItemDeliveryType
 }
 
 type Cart {
   items: [CartItem]
-
+  totalPrice: Int
 }
 
 type Query {
-  CartGet: [CartItem]
-  CartGetItem(id:String!):CartItem
+  CartGet: Cart
+  CartGetItem(id: String!): CartItem
 }
 
-type Mutation{
+type Mutation {
   CartAddItem(cartItem: CartItemInput): CartItem
-  CartUpdateItem(id:String!,quantity:Int!,deliveryType:[DeliveryType]!):CartItem
-  CartDeleteItem(id:String!):CartItem 
+  CartUpdateItem(
+    id: String!
+    quantity: Int!
+    deliveryType: CartItemDeliveryType!
+  ): CartItem
+  CartDeleteItem(id: String!): CartItem
 }
