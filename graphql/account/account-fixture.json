@@ -37,5 +37,62 @@
       "phone": "(212) 321-1229"
     }
   ],
-  "defaultAddressId": 0
+  "defaultAddressId": "0",
+  "PAYMENTS": [
+    {
+      "id": "2",
+      "type": "JCCC",
+      "number": "",
+      "message": "Earn 2x points on this purchase!"
+    },
+    {
+      "id": "1",
+      "type": "Visa",
+      "number": "15671233",
+      "message": "",
+      "date": "09/20"
+    },
+    {
+      "id": "2",
+      "type": "MasterCard",
+      "number": "41234567",
+      "message": "",
+      "date": "02/19"
+    },
+    {
+      "id": "3",
+      "type": "Amex",
+      "number": "30014567",
+      "message": "",
+      "date": "09/21"
+    }
+  ],
+  "defaultPaymentId": "1",
+  "METHODS": [
+    {
+      "id": "0",
+      "atp": "Tues, Jan 9th",
+      "price": "$25",
+      "title": "Overnight"
+    },
+    {
+      "id": "1",
+      "atp": "Wed, Jan 10th",
+      "price": "$20",
+      "title": "Expedited"
+    },
+    {
+      "id": "2",
+      "atp": "Fri, Jan 12th",
+      "price": "$3",
+      "title": "Standard"
+    },
+    {
+      "id": "3",
+      "atp": "Tues, Jan 16th",
+      "price": "",
+      "title": "Free Economy"
+    }
+  ],
+  "defaultShippingMethodId": "3"
 }

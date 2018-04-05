@@ -1,3 +1,10 @@
+enum PaymentMethodType {
+  MasterCard
+  Visa
+  Amex
+  JCCC
+}
+
 type Query {
   accountGet: Account
 }
@@ -5,6 +12,10 @@ type Query {
 type Account {
   addresses: [Address]
   defaultAddressId: String
+  payments: [Payment]
+  defaultPaymentId: String
+  shippingMethods: [ShippingMethod]
+  defaultShippingMethodId: String
 }
 
 type Address {
@@ -18,4 +29,19 @@ type Address {
   state: String
   zip: String
   phone: String
+}
+
+type Payment {
+  id: String
+  type: PaymentMethodType
+  number: String
+  message: String
+  date: String
+}
+
+type ShippingMethod {
+  id: String
+  atp: String
+  price: String
+  title: String
 }
