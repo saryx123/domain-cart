@@ -7,6 +7,8 @@ type Account {
   defaultAddressId: String
   payments: [Payment]
   defaultPaymentId: String
+  methods: [Method]
+  defaultMethodId: String
 }
 
 type Address {
@@ -23,8 +25,16 @@ type Address {
 }
 
 type Payment {
+  id: String
   type: String
   number: String
   message: String
   date: String
+}
+
+type Method {
+  id: String
+  atp: String
+  price: String
+  title: String
 }
