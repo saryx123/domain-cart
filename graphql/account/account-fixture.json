@@ -1,6 +1,7 @@
 {
   "ADDRESSES": [
     {
+      "id": "0",
       "address-1": "4865 Data Street",
       "address-2": "204",
       "city": "Hoboken",
@@ -12,6 +13,7 @@
       "phone": "(973) 132-9028"
     },
     {
+      "id": "1",
       "address-1": "21 Coffee Street",
       "address-2": "",
       "city": "Seattle",
@@ -23,6 +25,7 @@
       "phone": "(212) 209-8118"
     },
     {
+      "id": "2",
       "address-1": "103 Rocky Avenue",
       "address-2": "B6",
       "city": "Denver",

@@ -16,6 +16,7 @@ module.exports = {
     defaultAddressId: root => root.defaultAddressId
   },
   Address: {
+    id: item => item.id,
     address1: item => item['address-1'],
     address2: item => item['address-2'],
     city: item => item.city,
