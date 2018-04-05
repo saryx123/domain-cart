@@ -41,7 +41,7 @@
   "PAYMENTS": [
     {
       "id": "2",
-      "type": "J.Crew Credit Card",
+      "type": "JCCC",
       "number": "",
       "message": "Earn 2x points on this purchase!"
     },

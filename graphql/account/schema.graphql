@@ -1,3 +1,10 @@
+enum Card {
+  MasterCard
+  Visa
+  Amex
+  JCCC
+}
+
 type Query {
   accountGet: Account
 }
@@ -26,7 +33,7 @@ type Address {
 
 type Payment {
   id: String
-  type: String
+  type: Card
   number: String
   message: String
   date: String
