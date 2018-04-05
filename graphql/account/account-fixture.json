@@ -1,40 +1,38 @@
 {
-  "ACCOUNT": {
-      "ADDRESSES": [
-        {
-          "address-1": "4865 Data Street",
-          "address-2": "204",
-          "city": "Hoboken",
-          "company": "",
-          "firstName": "John",
-          "lastName": "Doe",
-          "state": "NJ",
-          "zipCode": "07030",
-          "phone": "(973) 132-9028"
-        },
-        {
-          "address-1": "21 Coffee Street",
-          "address-2": "",
-          "city": "Seattle",
-          "company": "",
-          "firstName": "Jane",
-          "lastName": "Doe",
-          "state": "WA",
-          "zipCode": "19324",
-          "phone": "(212) 209-8118"
-        },
-        {
-          "address-1": "103 Rocky Avenue",
-          "address-2": "B6",
-          "city": "Denver",
-          "company": "",
-          "firstName": "John",
-          "lastName": "Doe",
-          "state": "CO",
-          "zipCode": "10003",
-          "phone": "(212) 321-1229"
-        },
-      ],
-      "defaultAddressId": 0
-  }
+  "ADDRESSES": [
+    {
+      "address-1": "4865 Data Street",
+      "address-2": "204",
+      "city": "Hoboken",
+      "company": "",
+      "firstName": "John",
+      "lastName": "Doe",
+      "state": "NJ",
+      "zipCode": "07030",
+      "phone": "(973) 132-9028"
+    },
+    {
+      "address-1": "21 Coffee Street",
+      "address-2": "",
+      "city": "Seattle",
+      "company": "",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "state": "WA",
+      "zipCode": "19324",
+      "phone": "(212) 209-8118"
+    },
+    {
+      "address-1": "103 Rocky Avenue",
+      "address-2": "B6",
+      "city": "Denver",
+      "company": "",
+      "firstName": "John",
+      "lastName": "Doe",
+      "state": "CO",
+      "zipCode": "10003",
+      "phone": "(212) 321-1229"
+    }
+  ],
+  "defaultAddressId": 0
 }
