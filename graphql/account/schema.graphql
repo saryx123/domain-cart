@@ -1,4 +1,4 @@
-enum Card {
+enum PaymentMethodType {
   MasterCard
   Visa
   Amex
@@ -14,8 +14,8 @@ type Account {
   defaultAddressId: String
   payments: [Payment]
   defaultPaymentId: String
-  methods: [Method]
-  defaultMethodId: String
+  shippingMethods: [ShippingMethod]
+  defaultShippingMethodId: String
 }
 
 type Address {
@@ -33,13 +33,13 @@ type Address {
 
 type Payment {
   id: String
-  type: Card
+  type: PaymentMethodType
   number: String
   message: String
   date: String
 }
 
-type Method {
+type ShippingMethod {
   id: String
   atp: String
   price: String
