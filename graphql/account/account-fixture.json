@@ -37,5 +37,31 @@
       "phone": "(212) 321-1229"
     }
   ],
-  "defaultAddressId": 0
+  "defaultAddressId": 0,
+  "PAYMENTS": [
+    {
+      "type": "J.Crew Credit Card",
+      "number": "",
+      "message": "Earn 2x points on this purchase!"
+    },
+    {
+      "type": "Visa",
+      "number": "15671233",
+      "message": "",
+      "date": "09/20"
+    },
+    {
+      "type": "MasterCard",
+      "number": "41234567",
+      "message": "",
+      "date": "02/19"
+    },
+    {
+      "type": "Amex",
+      "number": "30014567",
+      "message": "",
+      "date": "09/21"
+    }
+  ],
+  "defaultPaymentId": 1
 }

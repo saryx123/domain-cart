@@ -13,7 +13,9 @@ module.exports = {
   },
   Account: {
     addresses: root => delve(root, 'ADDRESSES', []),
-    defaultAddressId: root => root.defaultAddressId
+    defaultAddressId: root => root.defaultAddressId,
+    payments: root => delve(root, 'PAYMENTS', []),
+    defaultPaymentId: root => root.defaultPaymentId
   },
   Address: {
     id: item => item.id,
@@ -26,5 +28,11 @@ module.exports = {
     state: item => item.state,
     zip: item => item.zipCode,
     phone: item => item.phone
+  },
+  Payment: {
+    type: item => item.type,
+    number: item => item.number,
+    message: item => item.message,
+    date: item => item.date
   }
 }

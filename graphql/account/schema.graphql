@@ -5,6 +5,8 @@ type Query {
 type Account {
   addresses: [Address]
   defaultAddressId: String
+  payments: [Payment]
+  defaultPaymentId: String
 }
 
 type Address {
@@ -18,4 +20,11 @@ type Address {
   state: String
   zip: String
   phone: String
+}
+
+type Payment {
+  type: String
+  number: String
+  message: String
+  date: String
 }
