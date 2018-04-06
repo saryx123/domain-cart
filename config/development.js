@@ -7,7 +7,7 @@ module.exports = {
   crewbot: {
     base: 'http://nyc-cbmweb-d10:3001'
   },
-  jspAjax: {
-    base: 'https://www.jcrew.com/browse2/ajax/'
+  jcrew: {
+    base: 'https://www.jcrew.com'
   }
 }
