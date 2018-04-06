@@ -17,7 +17,7 @@ module.exports = {
     payments: root => delve(root, 'PAYMENTS', []),
     defaultPaymentId: root => root.defaultPaymentId,
     shippingMethods: root => delve(root, 'METHODS', []),
-    defaultShippingMethodId: root => root.defaultMethodId
+    defaultShippingMethodId: root => root.defaultShippingMethodId
   },
   Address: {
     id: item => item.id,

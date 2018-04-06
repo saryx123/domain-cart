@@ -48,21 +48,21 @@
     {
       "id": "1",
       "type": "Visa",
-      "number": "15671233",
+      "number": "1567",
       "message": "",
       "date": "09/20"
     },
     {
       "id": "2",
       "type": "MasterCard",
-      "number": "41234567",
+      "number": "4123",
       "message": "",
       "date": "02/19"
     },
     {
       "id": "3",
       "type": "Amex",
-      "number": "30014567",
+      "number": "3001",
       "message": "",
       "date": "09/21"
     }
