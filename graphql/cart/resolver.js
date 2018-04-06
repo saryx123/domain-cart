@@ -33,8 +33,11 @@ module.exports = {
     currency: root => root.CURRENCY_FORMAT.currency,
     price: root => root.CART_SUMMARY || {},
     items: root => delve(root, 'SHOPPINGCART.BAG_ITEM', []),
-    quantity: root => delve(root, 'SHOPPINGCART.BAG_ITEM', [])
-      .reduce((n, item) => n + item.quantity, 0)
+    quantity: root =>
+      delve(root, 'SHOPPINGCART.BAG_ITEM', []).reduce(
+        (n, item) => n + item.quantity,
+        0
+      )
   },
   CartPrice: {
     subtotal: data => parsePrice(data.subTotal),
