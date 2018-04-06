@@ -3,8 +3,8 @@ type Query {
 }
 
 input CartItemInput {
-  sku: String!,
-  quantity: Int!,
+  sku: String!
+  quantity: Int!
   deliveryMethod: CartItemDeliveryMethod
 }
 

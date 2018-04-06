@@ -26,21 +26,21 @@ function get (context, event) {
 }
 
 function addItem (context, event) {
-  const body = JSON.parse(event.body || '{}')
-  return fetch(join(config.jspAjax.base, 'add_to_cart_ajax.jsp'), {
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: [
-      'addToCartJson=[',
-      JSON.stringify({
-        skuID,
-        qty,
-        navType: 'PRMNAV',
-        ignoreBackorderValidation: false,
-        currentInventoryStatus: 1
-      }),
-      ']&sidecar=true'
-    ].join('')
-  }).then(r => r.json())
+  // const body = JSON.parse(event.body || '{}')
+  // return fetch(join(config.jspAjax.base, 'add_to_cart_ajax.jsp'), {
+  //   headers: {
+  //     'content-type': 'application/json'
+  //   },
+  //   body: [
+  //     'addToCartJson=[',
+  //     JSON.stringify({
+  //       skuID,
+  //       qty,
+  //       navType: 'PRMNAV',
+  //       ignoreBackorderValidation: false,
+  //       currentInventoryStatus: 1
+  //     }),
+  //     ']&sidecar=true'
+  //   ].join('')
+  // }).then(r => r.json())
 }
