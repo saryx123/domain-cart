@@ -1,0 +1,29 @@
+type Query {
+  storeGet: Stores
+}
+
+type Stores {
+  storeDetails: [StoreDetails]
+}
+
+type StoreDetails {
+  id: ID
+  distance: String
+  address: Address
+  availability: Availability
+}
+
+type Address {
+  company: String
+  address1: String
+  address2: String
+  city: String
+  state: String
+  zip: String
+  phone: String
+}
+
+type Availability {
+  quantity: String
+  instore: Boolean
+}
