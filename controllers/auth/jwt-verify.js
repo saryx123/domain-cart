@@ -16,7 +16,7 @@ function verify ({ token }, context) {
 
       return Promise.resolve({ user: context.user, jwt: token })
     })
-    .catch((e) => {
+    .catch(e => {
       throw HttpError(401)
     })
 }

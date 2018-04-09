@@ -46,30 +46,7 @@ provider:
         - lambda:InvokeFunction
       Resource: "*"
 
-functions:
-  graphql:
-    handler: functions/graphql/index.graphqlHandler
-    events:
-      - http:
-          path: /graphql
-          method: get
-          cors: true
-      - http:
-          path: /graphql
-          method: post
-          cors: true
-  graphiql:
-    handler: functions/graphql/index.graphiqlHandler
-    events:
-      - http:
-          path: /graphiql
-          method: get
-  navigation:
-    handler: functions/navigation/index.handler
-    events:
-      - http:
-          path: /navigation
-          method: get
+functions: ${file(./serverless-find-functions.js)}
 
 # resources:
 #   Resources: ${file(migrations/cart-checkout.yml)}

@@ -1,0 +1,18 @@
+functions:
+  graphql:
+    handler: index.graphqlHandler
+    events:
+      - http:
+          path: /graphql
+          method: get
+          cors: true
+      - http:
+          path: /graphql
+          method: post
+          cors: true
+  graphiql:
+    handler: index.graphiqlHandler
+    events:
+      - http:
+          path: /graphiql
+          method: get

@@ -10,9 +10,10 @@ exports.graphiqlHandler = server.graphiqlLambda({
 
 exports.graphqlHandler = (event, context, callback) => {
   const authHeader = event.headers && event.headers.authorization
-  const appContext = Object.assign({}, context, { event })
+  const graphqlContext = Object.assign({}, context, { event })
   const authPromise =
-        authHeader && jwtVerify({ token: authHeader.split(' ').pop() }, appContext)
+    authHeader &&
+    jwtVerify({ token: authHeader.split(' ').pop() }, graphqlContext)
 
   Promise.resolve(authPromise)
     .catch(_ => {
@@ -21,7 +22,7 @@ exports.graphqlHandler = (event, context, callback) => {
     .then(() => {
       server.graphqlLambda({
         schema,
-        context: appContext
+        context: graphqlContext
       })(event, context, handleGraphqlResponse)
     })
 
@@ -36,10 +37,10 @@ exports.graphqlHandler = (event, context, callback) => {
       data.headers['Access-Control-Allow-Credentials'] = true
       data.headers['Access-Control-Expose-Headers'] = 'Authorization'
     }
-    if (appContext.jwt) {
-      data.headers.Authorization = `Bearer ${appContext.jwt}`
+    if (graphqlContext.jwt) {
+      data.headers.Authorization = `Bearer ${graphqlContext.jwt}`
       data.headers['Set-Cookie'] = data.headers['Set-Cookie'] || ''
-      data.headers['Set-Cookie'] += ` jcrew_jwt=${appContext.jwt}; domain=${
+      data.headers['Set-Cookie'] += ` jcrew_jwt=${graphqlContext.jwt}; domain=${
         Url.parse(origin).hostname
       };`
     }
