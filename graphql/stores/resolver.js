@@ -11,10 +11,10 @@ module.exports = {
       return getStores()
     }
   },
-  Stores: {
-    storeDetails: root => delve(root, 'STORES.STORESDETAILS', [])
+  getStores: {
+    stores: root => delve(root, 'STORES.STORESDETAILS', [])
   },
-  StoreDetails: {
+  Stores: {
     id: item => item.id,
     distance: item => item.distance,
     address: item => item.address,
@@ -30,7 +30,6 @@ module.exports = {
     phone: item => item.phone
   },
   Availability: {
-    quantity: item => item.quantity,
-    instore: item => item.instore
+    quantity: item => item.quantity
   }
 }

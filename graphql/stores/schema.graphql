@@ -1,12 +1,12 @@
 type Query {
-  storeGet: Stores
+  storeGet: getStores
+}
+
+type getStores {
+  stores: [Stores]
 }
 
 type Stores {
-  storeDetails: [StoreDetails]
-}
-
-type StoreDetails {
   id: ID
   distance: String
   address: Address
@@ -25,5 +25,4 @@ type Address {
 
 type Availability {
   quantity: String
-  instore: Boolean
 }

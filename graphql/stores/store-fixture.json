@@ -14,8 +14,7 @@
           "phone": "4045410635"
         },
         "availability": {
-          "quantity": "3",
-          "instore": true
+          "quantity": "3"
         }
       },
       {
@@ -31,8 +30,7 @@
           "phone": "4042372739"
         },
         "availability": {
-          "quantity": "4",
-          "instore": false
+          "quantity": "4"
         }
       },
       {
@@ -48,8 +46,7 @@
           "phone": "7705518900"
         },
         "availability": {
-          "quantity": "4",
-          "instore": true
+          "quantity": "4"
         }
       }
     ]
