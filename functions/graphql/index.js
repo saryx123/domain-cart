@@ -15,13 +15,15 @@ exports.graphqlHandler = (event, context, callback) => {
         authHeader && jwtVerify({ token: authHeader.split(' ').pop() }, appContext)
 
   Promise.resolve(authPromise)
+    .catch(_ => {
+      // Ignore JWT verify error, services will send auth errors themselves if auth is required.
+    })
     .then(() => {
       server.graphqlLambda({
         schema,
         context: appContext
       })(event, context, handleGraphqlResponse)
     })
-    .catch(jwtVerifyError => callback(null, jwtVerifyError))
 
   function handleGraphqlResponse (error, data) {
     if (error) return callback(error)
