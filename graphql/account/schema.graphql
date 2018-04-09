@@ -7,12 +7,7 @@ type Mutation {
     email: String!
     password: String!
     remember: Boolean
-  ): AccountAuthorization
-}
-
-type AccountAuthorization {
-  token: String
-  user: AccountUser
+  ): AccountUser
 }
 
 type AccountUser {

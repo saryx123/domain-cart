@@ -14,10 +14,7 @@ module.exports = {
   },
   Mutation: {
     accountLogin (root, args, context) {
-      return login(args, context).then(user => ({
-        user,
-        token: context.jwt
-      }))
+      return login(args, context)
     }
   },
   Account: {

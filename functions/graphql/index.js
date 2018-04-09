@@ -12,7 +12,7 @@ exports.graphqlHandler = (event, context, callback) => {
   const authHeader = event.headers && event.headers.authorization
   const appContext = Object.assign({}, context, { event })
   const authPromise =
-    authHeader && jwtVerify(authHeader.split(' ').pop(), appContext)
+        authHeader && jwtVerify({ token: authHeader.split(' ').pop() }, appContext)
 
   Promise.resolve(authPromise)
     .then(() => {
