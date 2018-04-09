@@ -5,6 +5,7 @@ module.exports = mergeSchemas({
     require('./account'),
     require('./cart'),
     require('./cms'),
-    require('./navigation')
+    require('./navigation'),
+    require('./stores')
   ]
 })

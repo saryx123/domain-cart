@@ -1,0 +1,54 @@
+{
+  "STORES": {
+    "STORESDETAILS": [
+      {
+        "id": 1,
+        "distance": "2.09 mi",
+        "address": {
+          "company": "Ponce City Market",
+          "address-1": "675 Ponce De Leon Ave NE",
+          "address-2": "",
+          "city": "Atlanta",
+          "state": "GA",
+          "zipCode": "30308",
+          "phone": "4045410635"
+        },
+        "availability": {
+          "quantity": "3"
+        }
+      },
+      {
+        "id": 2,
+        "distance": "5.59 mi",
+        "address": {
+          "company": "Lenox square",
+          "address-1": "3393 Peachtree Rd",
+          "address-2": "",
+          "city": "Atlanta",
+          "state": "GA",
+          "zipCode": "30326",
+          "phone": "4042372739"
+        },
+        "availability": {
+          "quantity": "4"
+        }
+      },
+      {
+        "id": 3,
+        "distance": "11 mi",
+        "address": {
+          "company": "Perimeter mall",
+          "address-1": "4400 Ashford Dunwoody Rd",
+          "address-2": "Suite 2416",
+          "city": "Atlanta",
+          "state": "GA",
+          "zipCode": "30346",
+          "phone": "7705518900"
+        },
+        "availability": {
+          "quantity": "4"
+        }
+      }
+    ]
+  }
+}
