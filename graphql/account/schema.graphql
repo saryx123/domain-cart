@@ -1,12 +1,23 @@
-enum PaymentMethodType {
-  MasterCard
-  Visa
-  Amex
-  JCCC
-}
-
 type Query {
   accountGet: Account
+}
+
+type Mutation {
+  accountLogin(
+    email: String!
+    password: String!
+    remember: Boolean
+  ): AccountAuthorization
+}
+
+type AccountAuthorization {
+  token: String
+  user: AccountUsesr
+}
+
+type AccountUser {
+  id: String
+  email: String
 }
 
 type Account {
@@ -39,9 +50,25 @@ type Payment {
   date: String
 }
 
+enum PaymentMethodType {
+  MasterCard
+  Visa
+  Amex
+  JCCC
+}
+
 type ShippingMethod {
   id: String
   atp: String
   price: String
   title: String
+}
+
+type Query {
+  account: User
+}
+
+type UserLogin {
+  token: String!
+  user: User!
 }

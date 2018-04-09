@@ -2,6 +2,12 @@ type Query {
   cartGet: Cart
 }
 
+input CartItemInput {
+  sku: String!
+  quantity: Int!
+  deliveryMethod: CartItemDeliveryMethod
+}
+
 type Cart {
   currency: String
   items: [CartItem]
@@ -18,20 +24,42 @@ type CartPrice {
 }
 
 type CartItem {
-  quantity: Int
   product: Product
+  quantity: Int
   size: String
   color: String
-  status: CartItemStatus!
+  delivery: CartItemDelivery!
 }
 
 type Product {
+  status: ProductStatus!
   sku: String
   url: String
   price: ProductPrice!
   mainImage: ProductImage!
   images: [ProductImage]!
   description: ProductDescription!
+}
+
+type CartItemDelivery {
+  method: CartItemDeliveryMethod!
+  estimatedDate: Int
+  "The shipping type is only defined when method is SHIP_TO_STORE/SHIP_TO_ADDRESS"
+  shippingType: CartItemShippingType
+  "The pickupStoreId is only defined when method is PICKUP_IN_STORE"
+  pickupStoreId: Int
+}
+
+enum CartItemDeliveryMethod {
+  SHIP_TO_ADDRESS
+  SHIP_TO_STORE
+  PICKUP_IN_STORE
+}
+
+enum CartItemShippingType {
+  THREE_DAY
+  TWO_DAY
+  ONE_DAY
 }
 
 type ProductImage {
@@ -43,13 +71,13 @@ type ProductPrice {
   list: Int
 }
 
-type CartItemStatus {
-  code: CartItemStatusCode
+type ProductStatus {
+  code: ProductStatusCode
   backOrdered: Boolean
   details: String
 }
 
-enum CartItemStatusCode {
+enum ProductStatusCode {
   IN_STOCK
   OUT_OF_STOCK
 }
@@ -57,20 +85,6 @@ enum CartItemStatusCode {
 type ProductDescription {
   short: String
 }
-#   final: finalPrice,
-#   list: listPrice,
-#   ecoFee: ecoFee,
-#   totalOrderItemPrice: totalOrderItemPrice,
-#   instantSavings,
-#   conditionalSavings,
-#   unitOfMeasure: price.unitOfMeasure || '',
-#   isBusinessExclusive: hasBusinessSavings(data),
-#   visibility: {
-#     onlyCart: StrBool(data.seePriceInCart, data.priceInCartOnly),
-#     previousPrice: StrBool(price.displayWasPricing),
-#     regularPrice: StrBool(price.displayRegularPricing)
-#   }
-# }
 
 # {
 #     "CURRENCY_FORMAT": {

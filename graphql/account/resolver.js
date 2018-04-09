@@ -1,14 +1,23 @@
 const delve = require('dlv')
+const login = require('../../controllers/auth/login')
 
 function getAccount () {
   // NOTE(bb220): temporarily use account fixtures
-  if (true) return require('./account-fixture.json') //eslint-disable-line
+  return require('./account-fixture.json')
 }
 
 module.exports = {
   Query: {
     accountGet (root, args) {
       return getAccount()
+    }
+  },
+  Mutation: {
+    accountLogin (root, args, context) {
+      return login(args, context).then(user => ({
+        user,
+        token: context.jwt
+      }))
     }
   },
   Account: {
