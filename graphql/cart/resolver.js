@@ -50,14 +50,7 @@ module.exports = {
     quantity: item => item.quantity || 0,
     product: item => item, // pass item to Product resolver
     size: item => item.size,
-    color: item => item.color,
-    status: item => item // pas item to CartItemStatus resolver
-  },
-  CartItemStatus: {
-    code: item =>
-      /in stock/i.test(item.status || '') ? 'IN_STOCK' : 'OUT_OF_STOCK',
-    backOrdered: item => Boolean(item.backOrdered),
-    details: item => item.statusDetails
+    color: item => item.color
   },
   Product: {
     sku: item => item.sku_id,
@@ -67,7 +60,14 @@ module.exports = {
     images: item => [{ url: item.imageUrl }],
     description: item => ({
       short: item.shortDesc
-    })
+    }),
+    status: item => item
+  },
+  ProductStatus: {
+    code: item =>
+      /in stock/i.test(item.status || '') ? 'IN_STOCK' : 'OUT_OF_STOCK',
+    backOrdered: item => Boolean(item.backOrdered),
+    details: item => item.statusDetails
   },
   ProductPrice: {
     list: item => parsePrice(item.listPrice),

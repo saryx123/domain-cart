@@ -1,0 +1,17 @@
+type Query {
+  account: User
+}
+
+type Mutation {
+  accountLogin(email: String!, password: String!, remember: Boolean): UserLogin
+}
+
+type UserLogin {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: String
+  email: String
+}

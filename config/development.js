@@ -9,5 +9,8 @@ module.exports = {
   },
   jcrew: {
     base: 'https://www.jcrew.com'
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET || 'jcrew secret'
   }
 }
