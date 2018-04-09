@@ -12,7 +12,7 @@ type Mutation {
 
 type AccountAuthorization {
   token: String
-  user: AccountUsesr
+  user: AccountUser
 }
 
 type AccountUser {
@@ -62,13 +62,4 @@ type ShippingMethod {
   atp: String
   price: String
   title: String
-}
-
-type Query {
-  account: User
-}
-
-type UserLogin {
-  token: String!
-  user: User!
 }
