@@ -5,22 +5,22 @@ const delve = require('dlv')
 const { parsePrice } = require('./helpers')
 
 function getCart () {
-  // NOTE(ajoslin): temporarily use cart fixtures
-  // because cart api is down
-  if (true) return require('./cart-fixture.json') //eslint-disable-line
-  return fetch(join(config.crewbot.base, 'cart'), {
+  return fetch(join(config.crewbot.base, 'cart/get'), {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
-      CART_REQUEST: {
-        countryCode: 'US',
-        brand: 'jcrew'
-      },
+      countryCode: 'US',
       USER_DETAILS: {
         type: 'signin',
         email: 'test@email.com'
-      }
+      },
+      brand: 'jcrew'
     })
-  }).then(r => r.json())
+  }).then(r => {
+    return r.json()
+  })
 }
 
 module.exports = {
