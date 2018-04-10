@@ -1,5 +1,4 @@
 var server = require('apollo-server-lambda')
-var jwtVerify = require('../../controllers/auth/jwt-verify')
 var Url = require('url')
 var schema = require('../../graphql')
 
@@ -9,22 +8,11 @@ exports.graphiqlHandler = server.graphiqlLambda({
 })
 
 exports.graphqlHandler = (event, context, callback) => {
-  const authHeader = event.headers && event.headers.authorization
-  const graphqlContext = Object.assign({}, context, { event })
-  const authPromise =
-    authHeader &&
-    jwtVerify({ token: authHeader.split(' ').pop() }, graphqlContext)
-
-  Promise.resolve(authPromise)
-    .catch(_ => {
-      // Ignore JWT verify error, services will send auth errors themselves if auth is required.
-    })
-    .then(() => {
-      server.graphqlLambda({
-        schema,
-        context: graphqlContext
-      })(event, context, handleGraphqlResponse)
-    })
+  server.graphqlLambda({ schema, context: event })(
+    event,
+    context,
+    handleGraphqlResponse
+  )
 
   function handleGraphqlResponse (error, data) {
     if (error) return callback(error)
@@ -37,10 +25,11 @@ exports.graphqlHandler = (event, context, callback) => {
       data.headers['Access-Control-Allow-Credentials'] = true
       data.headers['Access-Control-Expose-Headers'] = 'Authorization'
     }
-    if (graphqlContext.jwt) {
-      data.headers.Authorization = `Bearer ${graphqlContext.jwt}`
+    if (event.headers.Authorization) {
+      const token = event.headers.Authorization.split(' ').pop()
+      data.headers.Authorization = event.headers.Authorization
       data.headers['Set-Cookie'] = data.headers['Set-Cookie'] || ''
-      data.headers['Set-Cookie'] += ` jcrew_jwt=${graphqlContext.jwt}; domain=${
+      data.headers['Set-Cookie'] += ` jcrew_jwt=${token}; domain=${
         Url.parse(origin).hostname
       };`
     }

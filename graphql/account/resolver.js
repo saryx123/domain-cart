@@ -1,5 +1,6 @@
+const { loginHandler } = require('../../functions/auth')
+const { invoke } = require('../../lambda-helpers')
 const delve = require('dlv')
-const login = require('../../controllers/auth/login')
 
 function getAccount () {
   // NOTE(bb220): temporarily use account fixtures
@@ -14,7 +15,10 @@ module.exports = {
   },
   Mutation: {
     accountLogin (root, args, context) {
-      return login(args, context)
+      return invoke(loginHandler, args).then(data => {
+        context.headers.Authorization = data.headers.Authorization
+        return data.body
+      })
     }
   },
   Account: {
