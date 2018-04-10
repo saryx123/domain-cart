@@ -11,6 +11,11 @@ module.exports = {
   Query: {
     accountGet (root, args) {
       return getAccount()
+    },
+    accountUser () {
+      return null
+      // return new Promise((resolve) => setTimeout(resolve, 1500))
+      //   .then(() => ({ id: '123', email: 'andrew@ajoslin.com' }))
     }
   },
   Mutation: {
@@ -21,7 +26,7 @@ module.exports = {
       })
     }
   },
-  Account: {
+  AccountDetails: {
     addresses: root => delve(root, 'ADDRESSES', []),
     defaultAddressId: root => root.defaultAddressId,
     payments: root => delve(root, 'PAYMENTS', []),

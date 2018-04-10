@@ -1,5 +1,7 @@
 type Query {
-  accountGet: Account
+  "accountGet may be deprecated in favor of AccountDetails"
+  accountGet: AccountDetails
+  accountUser: AccountUser
 }
 
 type Mutation {
@@ -13,9 +15,10 @@ type Mutation {
 type AccountUser {
   id: String
   email: String
+  details: AccountDetails
 }
 
-type Account {
+type AccountDetails {
   addresses: [Address]
   defaultAddressId: String
   payments: [Payment]
